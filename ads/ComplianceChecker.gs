@@ -41,6 +41,7 @@ function main() {
   }
   
   checkKeywords();
+  checkConversions();
 
   var recipient = 'casey@rootedinmindfulness.org';
   var subject = 'RIM AdGrants Account Checker';
@@ -204,4 +205,18 @@ function checkLinks () {
    	Logger.log("[PASS]: All sitelink extensions links working.");  
   }
   
+}
+
+
+function checkConversions() {
+  // CHECK: At least one conversion in last month.
+
+  var stats = AdWordsApp.currentAccount().getStatsFor("LAST_MONTH");
+  var conversions = stats.getConversions();
+
+  if (conversions > 0) {
+    Logger.log("[PASS]: At least one conversion in last month (" + conversions.toFixed(0) + " conversions).");
+  } else {
+    Logger.log("[FAIL]: No conversions last month.")
+  }
 }
