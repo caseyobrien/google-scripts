@@ -119,14 +119,14 @@ function checkCtr() {
   var ctr30Days = AdWordsApp.currentAccount().getStatsFor("LAST_30_DAYS").getCtr();
   var ctrLastMonth = AdWordsApp.currentAccount().getStatsFor("LAST_MONTH").getCtr();
   if (ctr30Days >= 0.05) {
-    Logger.log("[PASS]: Account CTR for last 30 days is " + ctr30Days * 100 + "%.");
+    Logger.log("[PASS]: Account CTR for last 30 days is " + (ctr30Days * 100).toFixed(2) + "%.");
   } else {
-   	Logger.log("[FAIL]: Account CTR for last 30 days is " + ctr30Days * 100 + "%."); 
+   	Logger.log("[FAIL]: Account CTR for last 30 days is " + (ctr30Days * 100).toFixed(2) + "%."); 
   }
   if (ctrLastMonth >= 0.05) {
-    Logger.log("[PASS]: Account CTR for last month is " + ctrLastMonth * 100 + "%.");
+    Logger.log("[PASS]: Account CTR for last month is " + (ctrLastMonth * 100).toFixed(2) + "%.");
   } else {
-   	Logger.log("[FAIL]: Account CTR for last month is " + ctrLastMonth * 100 + "%."); 
+   	Logger.log("[FAIL]: Account CTR for last month is " + (ctrLastMonth * 100).toFixed(2) + "%."); 
   }
 }
 
